@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="10"/>
+    <BuildModes Active="Default"/>
+    <Units Count="6">
+      <Unit0>
+        <Filename Value="LN.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="20"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="27"/>
+        <CursorPos X="45" Y="44"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="classln.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ClassLN"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="42"/>
+        <CursorPos X="20" Y="52"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\Coseno\classcos.pas"/>
+        <UnitName Value="classCos"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="44"/>
+        <CursorPos X="49" Y="64"/>
+        <UsageCount Value="10"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\Coseno\coseno.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\Coseno\coseno.pas"/>
+        <UnitName Value="Coseno"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="27"/>
+        <CursorPos Y="41"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit5>
+    </Units>
+    <JumpHistory Count="6" HistoryIndex="5">
+      <Position1>
+        <Filename Value="main.pas"/>
+        <Caret Line="9" Column="10" TopLine="5"/>
+      </Position1>
+      <Position2>
+        <Filename Value="main.pas"/>
+        <Caret Line="44" Column="80" TopLine="26"/>
+      </Position2>
+      <Position3>
+        <Filename Value="classln.pas"/>
+        <Caret Line="29" Column="28" TopLine="18"/>
+      </Position3>
+      <Position4>
+        <Filename Value="classln.pas"/>
+        <Caret Line="63" Column="5" TopLine="45"/>
+      </Position4>
+      <Position5>
+        <Filename Value="main.pas"/>
+        <Caret Line="44" Column="45" TopLine="27"/>
+      </Position5>
+      <Position6>
+        <Filename Value="classln.pas"/>
+        <Caret Line="58" Column="46" TopLine="42"/>
+      </Position6>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

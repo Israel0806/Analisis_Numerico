@@ -1,0 +1,57 @@
+object Form1: TForm1
+  Left = 267
+  Height = 623
+  Top = 219
+  Width = 796
+  Caption = 'Form1'
+  ClientHeight = 623
+  ClientWidth = 796
+  DesignTimePPI = 120
+  LCLVersion = '1.8.4.0'
+  object BEjecutar: TButton
+    Left = 312
+    Height = 31
+    Top = 128
+    Width = 94
+    Caption = 'Ejecutar'
+    OnClick = BEjecutarClick
+    TabOrder = 0
+  end
+  object LabelAngulo: TLabel
+    Left = 104
+    Height = 20
+    Top = 80
+    Width = 51
+    Caption = 'Angulo:'
+    ParentColor = False
+  end
+  object LabelErrror: TLabel
+    Left = 104
+    Height = 20
+    Top = 128
+    Width = 35
+    Caption = 'Error:'
+    ParentColor = False
+  end
+  object EditError: TEdit
+    Left = 176
+    Height = 28
+    Top = 128
+    Width = 100
+    TabOrder = 1
+  end
+  object EditAngulo: TEdit
+    Left = 176
+    Height = 28
+    Top = 80
+    Width = 100
+    TabOrder = 2
+  end
+  object MemoRpta: TMemo
+    Left = 176
+    Height = 220
+    Top = 184
+    Width = 359
+    TabOrder = 3
+  end
+end

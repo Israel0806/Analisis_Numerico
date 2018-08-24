@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="10"/>
+    <BuildModes Active="Default"/>
+    <Units Count="7">
+      <Unit0>
+        <Filename Value="LN.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="21"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="27"/>
+        <CursorPos X="29" Y="43"/>
+        <UsageCount Value="21"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="classln.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ClassLn"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="39"/>
+        <CursorPos X="27" Y="56"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\Coseno\classcos.pas"/>
+        <UnitName Value="classCos"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="47"/>
+        <CursorPos X="6" Y="39"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\Exponencial\main.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\Exponencial\classexponencial.pas"/>
+        <UnitName Value="ClassExponencial"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="46"/>
+        <CursorPos X="46" Y="64"/>
+        <UsageCount Value="10"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\Coseno\coseno.pas"/>
+        <UnitName Value="Coseno"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="27"/>
+        <UsageCount Value="10"/>
+      </Unit6>
+    </Units>
+    <JumpHistory Count="5" HistoryIndex="4">
+      <Position1>
+        <Filename Value="classln.pas"/>
+        <Caret Line="53" Column="20" TopLine="34"/>
+      </Position1>
+      <Position2>
+        <Filename Value="classln.pas"/>
+        <Caret Line="36" Column="29" TopLine="25"/>
+      </Position2>
+      <Position3>
+        <Filename Value="classln.pas"/>
+        <Caret Line="44" Column="20" TopLine="31"/>
+      </Position3>
+      <Position4>
+        <Filename Value="classln.pas"/>
+        <Caret Line="49" Column="11" TopLine="38"/>
+      </Position4>
+      <Position5>
+        <Filename Value="classln.pas"/>
+        <Caret Line="50" Column="31" TopLine="35"/>
+      </Position5>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

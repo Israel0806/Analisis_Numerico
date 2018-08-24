@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="10"/>
+    <BuildModes Active="Default"/>
+    <Units Count="4">
+      <Unit0>
+        <Filename Value="Main.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="7" Y="5"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="coseno.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Coseno"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="27"/>
+        <CursorPos X="12" Y="44"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="classcos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="classCos"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="47"/>
+        <CursorPos X="15" Y="53"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\Seno\main.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="27"/>
+        <CursorPos Y="40"/>
+        <UsageCount Value="10"/>
+      </Unit3>
+    </Units>
+    <JumpHistory Count="9" HistoryIndex="8">
+      <Position1>
+        <Filename Value="coseno.pas"/>
+        <Caret Line="6" Column="16"/>
+      </Position1>
+      <Position2>
+        <Filename Value="coseno.pas"/>
+        <Caret Line="6" Column="16"/>
+      </Position2>
+      <Position3>
+        <Filename Value="coseno.pas"/>
+        <Caret Line="17" Column="26" TopLine="13"/>
+      </Position3>
+      <Position4>
+        <Filename Value="classcos.pas"/>
+        <Caret Line="53" Column="15" TopLine="44"/>
+      </Position4>
+      <Position5>
+        <Filename Value="coseno.pas"/>
+        <Caret Line="40" Column="4" TopLine="26"/>
+      </Position5>
+      <Position6>
+        <Filename Value="coseno.pas"/>
+        <Caret Line="41" Column="4" TopLine="26"/>
+      </Position6>
+      <Position7>
+        <Filename Value="coseno.pas"/>
+        <Caret Line="40" Column="4" TopLine="26"/>
+      </Position7>
+      <Position8>
+        <Filename Value="coseno.pas"/>
+        <Caret Line="41" Column="4" TopLine="26"/>
+      </Position8>
+      <Position9>
+        <Filename Value="coseno.pas"/>
+        <Caret Line="39" Column="16" TopLine="27"/>
+      </Position9>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

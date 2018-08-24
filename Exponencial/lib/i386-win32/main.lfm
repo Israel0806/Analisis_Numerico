@@ -1,0 +1,70 @@
+object Form1: TForm1
+  Left = 367
+  Height = 508
+  Top = 213
+  Width = 751
+  Caption = 'Form1'
+  ClientHeight = 508
+  ClientWidth = 751
+  DesignTimePPI = 120
+  LCLVersion = '1.8.4.0'
+  object BEjecutar: TButton
+    Left = 328
+    Height = 31
+    Top = 125
+    Width = 94
+    Caption = 'Ejecutar'
+    OnClick = BEjecutarClick
+    TabOrder = 0
+  end
+  object LabelAngulo: TLabel
+    Left = 112
+    Height = 24
+    Top = 95
+    Width = 91
+    Caption = 'Exponente:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -18
+    Font.Name = '@Arial Unicode MS'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object EditExp: TEdit
+    Left = 208
+    Height = 28
+    Top = 91
+    Width = 100
+    TabOrder = 1
+  end
+  object MemoRpta: TMemo
+    Left = 208
+    Height = 181
+    Top = 176
+    Width = 345
+    Enabled = False
+    TabOrder = 2
+  end
+  object LabelError: TLabel
+    Left = 112
+    Height = 24
+    Top = 128
+    Width = 45
+    Caption = 'Error:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -18
+    Font.Name = '@Arial Unicode MS'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object EditError: TEdit
+    Left = 208
+    Height = 28
+    Top = 128
+    Width = 100
+    TabOrder = 3
+  end
+end
