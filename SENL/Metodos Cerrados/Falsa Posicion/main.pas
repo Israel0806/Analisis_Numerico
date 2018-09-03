@@ -38,7 +38,8 @@ implementation
 function f( x : Real ) : Real;
 begin
   //Result := Sqr(x) - LN(x) - Sin(x) - x;
-  Result := (x* LN(x) - Exp(x) + 0.1)/(5-x)+1;
+  //Result := (x* LN(x) - Exp(x) + 0.1)/(5-x)+1;
+  Result := Cos(x) - x;
 end;
 
 {$R *.lfm}

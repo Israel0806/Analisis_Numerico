@@ -3,7 +3,7 @@ object Form1: TForm1
   Height = 732
   Top = 123
   Width = 833
-  Caption = 'Form1'
+  Caption = 'Newton'
   ClientHeight = 732
   ClientWidth = 833
   DesignTimePPI = 120

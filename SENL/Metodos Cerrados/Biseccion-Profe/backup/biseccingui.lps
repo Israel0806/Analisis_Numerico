@@ -4,7 +4,7 @@
     <PathDelim Value="\"/>
     <Version Value="10"/>
     <BuildModes Active="Default"/>
-    <Units Count="6">
+    <Units Count="8">
       <Unit0>
         <Filename Value="biseccingui.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -20,8 +20,8 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="81"/>
-        <CursorPos X="27" Y="85"/>
+        <TopLine Value="78"/>
+        <CursorPos X="10" Y="88"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -29,9 +29,9 @@
       <Unit2>
         <Filename Value="class_biseccion.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="15"/>
-        <CursorPos X="10" Y="20"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="47"/>
+        <CursorPos X="27" Y="67"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -39,12 +39,10 @@
         <Filename Value="parsemath.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ParseMath"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="193"/>
         <CursorPos Y="218"/>
         <UsageCount Value="21"/>
-        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="D:\lazarus\fpc\3.0.4\source\rtl\objpas\classes\classesh.inc"/>
@@ -61,8 +59,26 @@
         <CursorPos X="21" Y="177"/>
         <UsageCount Value="10"/>
       </Unit5>
+      <Unit6>
+        <Filename Value="..\Falsa Posicion\main.pas"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="40"/>
+        <CursorPos X="18" Y="44"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="..\Falsa Posicion\classfapos.pas"/>
+        <UnitName Value="ClassFaPos"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="19"/>
+        <CursorPos X="5" Y="30"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit7>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="25" HistoryIndex="24">
       <Position1>
         <Filename Value="mainbiseccion.pas"/>
         <Caret Line="75" Column="46" TopLine="62"/>
@@ -163,26 +179,6 @@
         <Filename Value="mainbiseccion.pas"/>
         <Caret Line="99" Column="20" TopLine="97"/>
       </Position25>
-      <Position26>
-        <Filename Value="parsemath.pas"/>
-        <Caret Line="10" Column="32"/>
-      </Position26>
-      <Position27>
-        <Filename Value="parsemath.pas"/>
-        <Caret Line="205" Column="20" TopLine="172"/>
-      </Position27>
-      <Position28>
-        <Filename Value="parsemath.pas"/>
-        <Caret Line="192" Column="18" TopLine="178"/>
-      </Position28>
-      <Position29>
-        <Filename Value="parsemath.pas"/>
-        <Caret Line="180" Column="16" TopLine="172"/>
-      </Position29>
-      <Position30>
-        <Filename Value="parsemath.pas"/>
-        <Caret Line="218" TopLine="193"/>
-      </Position30>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

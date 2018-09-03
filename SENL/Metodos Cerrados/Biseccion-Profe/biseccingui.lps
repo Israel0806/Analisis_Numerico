@@ -12,7 +12,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="24"/>
       </Unit0>
       <Unit1>
         <Filename Value="mainbiseccion.pas"/>
@@ -20,19 +20,20 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="78"/>
-        <CursorPos X="10" Y="88"/>
-        <UsageCount Value="23"/>
+        <TopLine Value="43"/>
+        <CursorPos X="10" Y="45"/>
+        <UsageCount Value="24"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="class_biseccion.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
         <TopLine Value="47"/>
-        <CursorPos X="27" Y="67"/>
-        <UsageCount Value="23"/>
+        <CursorPos X="26" Y="67"/>
+        <UsageCount Value="24"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -42,7 +43,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="193"/>
         <CursorPos Y="218"/>
-        <UsageCount Value="21"/>
+        <UsageCount Value="22"/>
       </Unit3>
       <Unit4>
         <Filename Value="D:\lazarus\fpc\3.0.4\source\rtl\objpas\classes\classesh.inc"/>
@@ -61,21 +62,21 @@
       </Unit5>
       <Unit6>
         <Filename Value="..\Falsa Posicion\main.pas"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="40"/>
         <CursorPos X="18" Y="44"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="..\Falsa Posicion\classfapos.pas"/>
         <UnitName Value="ClassFaPos"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="19"/>
         <CursorPos X="5" Y="30"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit7>
     </Units>
     <JumpHistory Count="25" HistoryIndex="24">

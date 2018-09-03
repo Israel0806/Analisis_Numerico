@@ -3,7 +3,7 @@ object Form1: TForm1
   Height = 670
   Top = 148
   Width = 820
-  Caption = 'Form1'
+  Caption = 'Biseccion'
   ClientHeight = 670
   ClientWidth = 820
   DesignTimePPI = 120

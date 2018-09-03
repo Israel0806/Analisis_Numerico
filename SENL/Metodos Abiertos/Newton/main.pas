@@ -36,12 +36,18 @@ implementation
 
 function f( x : Real ) : Real;
 begin
-  Result := Sqr(x) - LN(x) - Sin(x) - x;
+  //Result := Sqr(x) - LN(x) - Sin(x) - x;
+  //Result := Cos(x);
+  //Result := Cos(x) - x;
+  Result := Exp(x) - x - 1;
 end;
 
 function ff( x : Real ) : Real;
 begin
-  Result := 2*x - 1/x - Cos(x) - 1;
+  //Result := 2*x - 1/x - Cos(x) - 1;
+  //Result := -Sin(x);
+  //Result := -Sin(x) - 1;
+  Result := Exp(x) - 1;
 end;
 
 {$R *.lfm}

@@ -36,12 +36,16 @@ implementation
 
 function f( x : Real ) : Real;
 begin
-  Result := Sqr(x) - LN(x) - Sin(x) - x;
+  //Result := Sqr(x) - LN(x) - Sin(x) - x;
+  //Result := Cos(x);
+  Result := Cos(x) - x;
 end;
 
 function ff( x : Real ) : Real;
 begin
-  Result := 2*x - 1/x - Cos(x) - 1;
+  //Result := 2*x - 1/x - Cos(x) - 1;
+  //Result := -Sin(x);
+  Result := -Sin(x) - 1;
 end;
 
 {$R *.lfm}
@@ -70,7 +74,7 @@ begin
       x := x + 0.1
     end;
 
-  x := x - f(x)/ff(x);
+  //x := x - f(x)/ff(x);
 
   SL.Clear;
   SL.Add( FloatToStr(n) );

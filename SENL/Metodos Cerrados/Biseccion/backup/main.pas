@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
-  StdCtrls;
+  StdCtrls, Math;
 
 type
 
@@ -39,7 +39,8 @@ implementation
 
 function func( x : Real ) : Real;
 begin
-  Result := Sqr(x) - LN(x) - Sin(x) - x;
+  //Result := Sqr(x) - LN(x) - Sin(x) - x;
+  Result := power(x,3) + 4*Sqr(x) - 10;
 end;
 
 

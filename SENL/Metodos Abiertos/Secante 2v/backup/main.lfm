@@ -1,0 +1,100 @@
+object Form1: TForm1
+  Left = 271
+  Height = 663
+  Top = 110
+  Width = 923
+  Caption = 'Secante'
+  ClientHeight = 663
+  ClientWidth = 923
+  DesignTimePPI = 120
+  LCLVersion = '1.8.4.0'
+  object TGrid: TStringGrid
+    Left = 96
+    Height = 332
+    Top = 200
+    Width = 760
+    AutoFillColumns = True
+    FixedCols = 0
+    TabOrder = 0
+    ColWidths = (
+      151
+      151
+      151
+      151
+      152
+    )
+  end
+  object Button1: TButton
+    Left = 634
+    Height = 31
+    Top = 143
+    Width = 94
+    Caption = 'Ejecutar'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object Num1: TEdit
+    Left = 200
+    Height = 28
+    Top = 143
+    Width = 100
+    TabOrder = 2
+    Text = '1.4'
+  end
+  object Num2: TEdit
+    Left = 338
+    Height = 28
+    Top = 143
+    Width = 100
+    TabOrder = 3
+    Text = '4'
+  end
+  object TError: TEdit
+    Left = 480
+    Height = 28
+    Top = 143
+    Width = 100
+    TabOrder = 4
+    Text = '0.0001'
+  end
+  object Label1: TLabel
+    Left = 200
+    Height = 20
+    Top = 112
+    Width = 17
+    Caption = 'X0'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 338
+    Height = 20
+    Top = 112
+    Width = 17
+    Caption = 'X1'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 480
+    Height = 20
+    Top = 112
+    Width = 32
+    Caption = 'Error'
+    ParentColor = False
+  end
+  object LabelResult: TLabel
+    Left = 216
+    Height = 20
+    Top = 561
+    Width = 134
+    Caption = 'Valor Aproximado: -'
+    ParentColor = False
+  end
+  object LabelIt: TLabel
+    Left = 216
+    Height = 20
+    Top = 595
+    Width = 85
+    Caption = 'Iteraciones: -'
+    ParentColor = False
+  end
+end

@@ -67,7 +67,6 @@ begin
   begin
      x := a-( ( f(a)*(b-a) ) / ( f(b)-f(a) ) );
 
-
      SL.Clear;
      SL.Add( IntToStr(n) );
      SL.Add( FloatToStr(a) );
