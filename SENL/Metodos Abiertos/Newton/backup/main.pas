@@ -5,8 +5,8 @@ unit main;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
-  StdCtrls;
+  Classes, SysUtils, FileUtil, TAGraph, TASeries, TAFuncSeries, Forms, Controls,
+  Graphics, Dialogs, Grids, StdCtrls, ParseMath;
 
 type
 
@@ -14,16 +14,31 @@ type
 
   TForm1 = class(TForm)
     Button1: TButton;
+    Chart1: TChart;
+    Chart1ConstantLine1: TConstantLine;
+    Chart1ConstantLine2: TConstantLine;
+    Chart1LineSeries1: TLineSeries;
+    ediDF: TEdit;
+    Func: TFuncSeries;
     Label1: TLabel;
+    Label2: TLabel;
     Label3: TLabel;
+    Label4: TLabel;
     LabelIt: TLabel;
     LabelResult: TLabel;
     Num1: TEdit;
-    TGrid: TStringGrid;
+    ediF: TEdit;
     TError: TEdit;
+    TGrid: TStringGrid;
     procedure Button1Click(Sender: TObject);
-    procedure Num1Change(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure FuncCalculate(const AX: Double; out AY: Double);
   private
+    parse : TParseMath;
+    parsedf : TParseMath;
+    function f( x : Real ) : Real;
+    function df( x : Real ) : Real;
 
   public
 
@@ -34,18 +49,16 @@ var
 
 implementation
 
-function f( x : Real ) : Real;
+function TForm1.f( x : Real ) : Real;
 begin
-  //Result := Sqr(x) - LN(x) - Sin(x) - x;
-  //Result := Cos(x);
-  Result := Cos(x) - x;
+  parse.NewValue('x',x);
+  Result := parse.Evaluate();
 end;
 
-function ff( x : Real ) : Real;
+function TForm1.df( x : Real ) : Real;
 begin
-  //Result := 2*x - 1/x - Cos(x) - 1;
-  //Result := -Sin(x);
-  Result := -Sin(x) - 1;
+  parsedf.NewValue('x',x);
+  Result := parsedf.Evaluate();
 end;
 
 {$R *.lfm}
@@ -57,6 +70,12 @@ var SL : TStringList;
     xn, Error, NewError, x : Real;
     n : Integer = 0;
 begin
+  parse.Expression := ediF.Text;
+  parsedf.Expression := ediDF.Text;
+
+  Func.Active := False;
+  Func.Active := True;
+
   SL := TStringList.create;
   TGrid.Clear;
   SL.Add('N'); SL.Add('X'); SL.Add('Error');
@@ -69,12 +88,12 @@ begin
 
   Error := StrToFloat( TError.Text );
 
-  if ff(x) = 0 then
+  if df(x) = 0 then
     begin
       x := x + 0.1
     end;
 
-  //x := x - f(x)/ff(x);
+  //x := x - f(x)/df(x);
 
   SL.Clear;
   SL.Add( FloatToStr(n) );
@@ -85,9 +104,9 @@ begin
   repeat
      n := n + 1;
      xn := x;
-     x := x - f(x)/ff(x);
+     x := x - f(x)/df(x);
 
-    if ff(x) = 0 then
+    if df(x) = 0 then
       begin
         x := x + 0.1
       end;
@@ -102,15 +121,38 @@ begin
 
   until NewError <= Error ;
 
+  Chart1LineSeries1.Active := False;
+  Chart1LineSeries1.ShowLines := False;
+  Chart1LineSeries1.ShowPoints := False;
+  Chart1LineSeries1.AddXY(x,f(x));
+  Chart1LineSeries1.ShowPoints := True;
+  Chart1LineSeries1.Active := True;
+
   LabelResult.Caption := 'Valor Aproximado: ' + FloatToStr(x);
   LabelIt.Caption := 'Iteraciones: ' + FloatToStr(n);
 
   SL.destroy;
 end;
 
-procedure TForm1.Num1Change(Sender: TObject);
+procedure TForm1.FormCreate(Sender: TObject);
 begin
+  parse := TParseMath.create;
+  parse.AddVariable('x',0);
 
+  parsedf := TParseMath.create;
+  parsedf.AddVariable('x',0);
+
+end;
+
+procedure TForm1.FormDestroy(Sender: TObject);
+begin
+  parse.destroy;
+  parsedf.destroy;
+end;
+
+procedure TForm1.FuncCalculate(const AX: Double; out AY: Double);
+begin
+  AY := f(AX);
 end;
 
 end.

@@ -5,8 +5,8 @@ unit main;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
-  StdCtrls;
+  Classes, SysUtils, FileUtil, TAGraph, TASeries, TAFuncSeries, Forms, Controls,
+  Graphics, Dialogs, Grids, StdCtrls, ParseMath;
 
 type
 
@@ -14,9 +14,15 @@ type
 
   TForm1 = class(TForm)
     Button1: TButton;
-    Label1: TLabel;
-    Label2: TLabel;
+    Chart1: TChart;
+    Chart1ConstantLine1: TConstantLine;
+    Chart1ConstantLine2: TConstantLine;
+    Chart1LineSeries1: TLineSeries;
+    EdiF: TEdit;
+    Func: TFuncSeries;
     Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
     LabelIt: TLabel;
     LabelResult: TLabel;
     Num1: TEdit;
@@ -24,8 +30,12 @@ type
     StringGrid1: TStringGrid;
     TError: TEdit;
     procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure FuncCalculate(const AX: Double; out AY: Double);
   private
-
+    parse : TParseMath;
+    function f( x : Real) : Real;
   public
 
   end;
@@ -35,11 +45,13 @@ var
 
 implementation
 
-function f( x : Real ) : Real;
+function TForm1.f( x : Real ) : Real;
 begin
+  parse.NewValue('x',x);
+  Result := parse.Evaluate();
   //Result := Sqr(x) - LN(x) - Sin(x) - x;
   //Result := (x* LN(x) - Exp(x) + 0.1)/(5-x)+1;
-  Result := Cos(x) - x;
+  //Result := Cos(x) - x;
 end;
 
 {$R *.lfm}
@@ -51,10 +63,15 @@ var SL : TStringList;
   n : Integer;
   NewError, a, b, x, Error : Real;
 begin
+
+  parse.Expression := EdiF.Text;
+  Func.Active := False;
+  Func.Active := True;
+
   StringGrid1.Clear;
   SL := TStringList.Create;
   // Cabecera
-  SL.Add('N'); SL.Add('A'); SL.Add('B'); SL.Add('X'); SL.Add('Error');
+  SL.Add('N'); SL.Add('X'); SL.Add('Error');
   StringGrid1.ColCount := SL.Count;
   StringGrid1.Rows[0].Assign(SL);
 
@@ -70,8 +87,8 @@ begin
 
      SL.Clear;
      SL.Add( IntToStr(n) );
-     SL.Add( FloatToStr(a) );
-     SL.Add( FloatToStr(b) );
+     //SL.Add( FloatToStr(a) );
+     //SL.Add( FloatToStr(b) );
      SL.Add( FloatToStr(x) );
      SL.Add( '-' );
      StringGrid1.Rows[n+1].Assign(SL);
@@ -95,8 +112,8 @@ begin
 
        SL.Clear;
        SL.Add( IntToStr(n) );
-       SL.Add( FloatToStr(a) );
-       SL.Add( FloatToStr(b) );
+       //SL.Add( FloatToStr(a) );
+       //SL.Add( FloatToStr(b) );
        SL.Add( FloatToStr(x) );
        SL.Add( FloatToStr(NewError) );
 
@@ -104,6 +121,13 @@ begin
        StringGrid1.Rows[n+1].Assign(SL);
 
      until (NewError <= Error);
+
+     Chart1LineSeries1.Active := False;
+     Chart1LineSeries1.ShowLines:= False;
+     Chart1LineSeries1.ShowPoints:= True;
+     Chart1LineSeries1.AddXY( x, f(x) );
+     Chart1LineSeries1.Active:= True;
+
      LabelResult.Caption := 'Valor Aproximado: ' + FloatToStr(x);
      LabelIt.Caption := 'Iteraciones: ' + FloatToStr(n);
   end
@@ -112,10 +136,29 @@ begin
     SL.Clear;
     SL.Add('naa');
     StringGrid1.Rows[1].Assign(SL);
+
+    LabelResult.Caption := 'Valor Aproximado: -';
+    LabelIt.Caption := 'Iteraciones: -';
   end;
 
   SL.Destroy;
 
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  parse := TParseMath.create;
+  parse.AddVariable('x',0);
+end;
+
+procedure TForm1.FormDestroy(Sender: TObject);
+begin
+  parse.destroy;
+end;
+
+procedure TForm1.FuncCalculate(const AX: Double; out AY: Double);
+begin
+  AY := f(AX);
 end;
 
 end.
