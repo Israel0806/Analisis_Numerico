@@ -57,7 +57,7 @@ object Form1: TForm1
     Top = 183
     Width = 100
     TabOrder = 4
-    Text = '0.0001'
+    Text = '0.00001'
   end
   object Label1: TLabel
     Left = 40
@@ -91,11 +91,27 @@ object Form1: TForm1
     Caption = 'Iteraciones: -'
     ParentColor = False
   end
+  object EdiF: TEdit
+    Left = 40
+    Height = 28
+    Top = 47
+    Width = 220
+    TabOrder = 5
+  end
+  object Label2: TLabel
+    Left = 40
+    Height = 20
+    Top = 16
+    Width = 51
+    Caption = 'Funcion'
+    ParentColor = False
+  end
   object Chart1: TChart
     Left = 376
     Height = 548
     Top = 136
     Width = 645
+    AntialiasingMode = amOn
     AxisList = <    
       item
         Marks.LabelBrush.Style = bsClear
@@ -138,26 +154,11 @@ object Form1: TForm1
     end
     object Chart1LineSeries1: TLineSeries
       LinePen.Color = clRed
+      LinePen.Width = 5
       Pointer.HorizSize = 5
       Pointer.Pen.Color = clRed
       Pointer.Style = psCircle
       Pointer.VertSize = 5
     end
-  end
-  object EdiF: TEdit
-    Left = 40
-    Height = 28
-    Top = 47
-    Width = 220
-    TabOrder = 6
-    Text = '3*x^5+4*x^4-8*x^3-7*x+4'
-  end
-  object Label2: TLabel
-    Left = 40
-    Height = 20
-    Top = 16
-    Width = 51
-    Caption = 'Funcion'
-    ParentColor = False
   end
 end

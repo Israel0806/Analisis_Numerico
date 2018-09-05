@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 263
+  Left = 1221
   Height = 780
-  Top = 53
+  Top = 138
   Width = 1007
   Caption = 'Newton'
   ClientHeight = 780
@@ -11,17 +11,17 @@ object Form1: TForm1
   OnDestroy = FormDestroy
   LCLVersion = '1.8.4.0'
   object LabelIt: TLabel
-    Left = 384
+    Left = 312
     Height = 20
-    Top = 74
+    Top = 66
     Width = 85
     Caption = 'Iteraciones: -'
     ParentColor = False
   end
   object LabelResult: TLabel
-    Left = 384
+    Left = 312
     Height = 20
-    Top = 40
+    Top = 32
     Width = 134
     Caption = 'Valor Aproximado: -'
     ParentColor = False
@@ -59,7 +59,7 @@ object Form1: TForm1
     Text = '1'
   end
   object Button1: TButton
-    Left = 336
+    Left = 312
     Height = 31
     Top = 167
     Width = 94
@@ -68,19 +68,19 @@ object Form1: TForm1
     TabOrder = 2
   end
   object TGrid: TStringGrid
-    Left = 32
+    Left = 8
     Height = 524
     Top = 208
-    Width = 272
+    Width = 296
     AutoFillColumns = True
     FixedCols = 0
     TabOrder = 3
     ColWidths = (
-      53
-      53
-      53
-      53
-      56
+      58
+      58
+      58
+      58
+      60
     )
   end
   object Label2: TLabel
@@ -123,10 +123,10 @@ object Form1: TForm1
     Extent.UseXMin = True
     Extent.UseYMax = True
     Extent.UseYMin = True
-    Extent.XMax = 10
-    Extent.XMin = -10
-    Extent.YMax = 10
-    Extent.YMin = -10
+    Extent.XMax = 5
+    Extent.XMin = -5
+    Extent.YMax = 5
+    Extent.YMin = -5
     Foot.Brush.Color = clBtnFace
     Foot.Font.Color = clBlue
     Title.Brush.Color = clBtnFace
@@ -144,12 +144,14 @@ object Form1: TForm1
     object Func: TFuncSeries
       Active = False
       OnCalculate = FuncCalculate
+      Pen.Color = clRed
+      Pen.Width = 2
     end
     object Chart1LineSeries1: TLineSeries
-      LinePen.Color = clRed
-      LinePen.Width = 5
+      LinePen.Width = 3
       Pointer.HorizSize = 5
-      Pointer.Pen.Color = clRed
+      Pointer.Pen.Color = clBlue
+      Pointer.Pen.Width = 2
       Pointer.Style = psCircle
       Pointer.VertSize = 5
     end

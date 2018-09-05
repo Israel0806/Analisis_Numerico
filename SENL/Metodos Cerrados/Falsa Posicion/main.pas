@@ -122,6 +122,7 @@ begin
 
      until (NewError <= Error);
 
+     Chart1LineSeries1.Clear;
      Chart1LineSeries1.Active := False;
      Chart1LineSeries1.ShowLines:= False;
      Chart1LineSeries1.ShowPoints:= True;

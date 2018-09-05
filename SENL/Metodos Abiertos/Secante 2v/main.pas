@@ -5,8 +5,8 @@ unit main;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
-  StdCtrls;
+  Classes, SysUtils, FileUtil, TAGraph, TASeries, TAFuncSeries, Forms, Controls,
+  Graphics, Dialogs, Grids, StdCtrls, ParseMath;
 
 type
 
@@ -14,9 +14,16 @@ type
 
   TForm1 = class(TForm)
     Button1: TButton;
+    Chart1: TChart;
+    Chart1ConstantLine1: TConstantLine;
+    Chart1ConstantLine2: TConstantLine;
+    Chart1LineSeries1: TLineSeries;
+    EdiF: TEdit;
+    Func: TFuncSeries;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+    Label5: TLabel;
     LabelIt: TLabel;
     LabelResult: TLabel;
     Num1: TEdit;
@@ -24,8 +31,12 @@ type
     TError: TEdit;
     TGrid: TStringGrid;
     procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure FuncCalculate(const AX: Double; out AY: Double);
   private
-
+    parse : TParseMath;
+    function f( x : Real ) : Real;
   public
 
   end;
@@ -37,11 +48,10 @@ implementation
 
 {$R *.lfm}
 
-function f( x : Real ) : Real;
+function TForm1.f( x : Real ) : Real;
 begin
-  Result := Cos(x);
-  //Result := Sqr(x) - LN(x) - Sin(x) - x;
-  //Result := Exp(x) - x - 1;
+  parse.NewValue('x',x);
+  Result := parse.Evaluate();
 end;
 
 { TForm1 }
@@ -51,6 +61,11 @@ var SL : TStringList;
      x0, x1,x, NewError, Error : Real;
      n : Integer = 0;
 begin
+  parse.Expression := EdiF.Text;
+
+  Func.Active := False;
+  Func.Active := True;
+
   SL := TStringList.create;
 
   TGrid.Clear;
@@ -92,10 +107,32 @@ begin
 
   until NewError <= Error ;
 
+  Chart1LineSeries1.Clear;
+  Chart1LineSeries1.Active := False;
+  Chart1LineSeries1.ShowLines := False;
+  Chart1LineSeries1.ShowPoints := True;
+  Chart1LineSeries1.AddXY(x,f(x));
+  Chart1LineSeries1.Active := True;
 
   LabelResult.Caption := 'Valor Aproximado: ' + FloatToStr(x);
   LabelIt.Caption := 'Iteraciones: ' + FloatToStr(n);
   SL.Destroy;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  parse := TParseMath.create;
+  parse.AddVariable('x',0);
+end;
+
+procedure TForm1.FormDestroy(Sender: TObject);
+begin
+  parse.destroy;
+end;
+
+procedure TForm1.FuncCalculate(const AX: Double; out AY: Double);
+begin
+  AY := f(AX);
 end;
 
 end.

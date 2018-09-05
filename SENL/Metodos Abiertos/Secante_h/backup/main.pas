@@ -114,7 +114,7 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   parse := TParseMath.create;
-  parse.AddVariable('x',x);
+  parse.AddVariable('x',0);
 end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
