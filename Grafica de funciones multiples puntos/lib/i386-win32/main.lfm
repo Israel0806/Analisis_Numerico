@@ -1,0 +1,208 @@
+object Form1: TForm1
+  Left = 413
+  Height = 710
+  Top = 154
+  Width = 1022
+  Align = alClient
+  Caption = 'Grafica de Funciones'
+  ClientHeight = 0
+  ClientWidth = 0
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '1.8.4.0'
+  object PFuncs: TPanel
+    Left = 0
+    Height = 710
+    Top = 0
+    Width = 230
+    Align = alLeft
+    BorderWidth = 3
+    ClientHeight = 710
+    ClientWidth = 230
+    TabOrder = 0
+    object ScrollBox1: TScrollBox
+      Left = 4
+      Height = 702
+      Top = 4
+      Width = 222
+      HorzScrollBar.Increment = 1
+      HorzScrollBar.Page = 1
+      HorzScrollBar.Smooth = True
+      HorzScrollBar.Tracking = True
+      VertScrollBar.Page = 1
+      Align = alClient
+      TabOrder = 0
+    end
+  end
+  object Panel3: TPanel
+    Left = 230
+    Height = 710
+    Top = 0
+    Width = 792
+    Align = alClient
+    Caption = 'Panel3'
+    ClientHeight = 710
+    ClientWidth = 792
+    TabOrder = 1
+    object Panel2: TPanel
+      Left = 1
+      Height = 94
+      Top = 615
+      Width = 790
+      Align = alBottom
+      ClientHeight = 94
+      ClientWidth = 790
+      TabOrder = 0
+      object BEjectuar: TButton
+        Left = 424
+        Height = 48
+        Top = 28
+        Width = 84
+        Caption = 'Ejectuar'
+        OnClick = BEjectuarClick
+        TabOrder = 0
+      end
+      object EdiF1: TEdit
+        Left = 96
+        Height = 28
+        Top = 13
+        Width = 164
+        Enabled = False
+        TabOrder = 1
+      end
+      object Label1: TLabel
+        Left = 8
+        Height = 20
+        Top = 13
+        Width = 66
+        Caption = 'Funcion 1:'
+        ParentColor = False
+      end
+      object EdiF2: TEdit
+        Left = 96
+        Height = 28
+        Top = 56
+        Width = 164
+        Enabled = False
+        TabOrder = 2
+      end
+      object Label2: TLabel
+        Left = 8
+        Height = 20
+        Top = 56
+        Width = 66
+        Caption = 'Funcion 2:'
+        ParentColor = False
+      end
+      object BF1: TButton
+        Left = 272
+        Height = 31
+        Top = 13
+        Width = 94
+        Caption = 'Borrar'
+        OnClick = BF1Click
+        TabOrder = 3
+      end
+      object BF2: TButton
+        Left = 272
+        Height = 31
+        Top = 56
+        Width = 94
+        Caption = 'Borrar'
+        OnClick = BF2Click
+        TabOrder = 4
+      end
+    end
+    object Panel1: TPanel
+      Left = 1
+      Height = 614
+      Top = 1
+      Width = 790
+      Align = alClient
+      BorderWidth = 2
+      ClientHeight = 614
+      ClientWidth = 790
+      TabOrder = 1
+      object Chart1: TChart
+        Left = 3
+        Height = 608
+        Top = 3
+        Width = 784
+        AxisList = <        
+          item
+            Marks.LabelBrush.Style = bsClear
+            Minors = <>
+            Title.LabelFont.Orientation = 900
+            Title.LabelBrush.Style = bsClear
+          end        
+          item
+            Alignment = calBottom
+            Marks.LabelBrush.Style = bsClear
+            Minors = <>
+            Title.LabelBrush.Style = bsClear
+          end>
+        BackColor = clHighlightText
+        Extent.UseXMax = True
+        Extent.UseXMin = True
+        Extent.UseYMax = True
+        Extent.UseYMin = True
+        Extent.XMax = 5
+        Extent.XMin = -5
+        Extent.YMax = 5
+        Extent.YMin = -5
+        Foot.Brush.Color = clBtnFace
+        Foot.Font.Color = clBlue
+        Title.Brush.Color = clBtnFace
+        Title.Font.Color = clBlue
+        Title.Text.Strings = (
+          'TAChart'
+        )
+        Toolset = ToolSet
+        Align = alClient
+        Color = clForm
+        object Chart1LineSeries1: TLineSeries
+          Marks.Format = '%2:s'
+          Marks.LinkPen.Color = clActiveBorder
+          Marks.LinkPen.Width = 2
+          Marks.Style = smsLabel
+          LinePen.Color = clRed
+          Pointer.Brush.Color = clRed
+          Pointer.Pen.Color = clRed
+          Pointer.Pen.Width = 2
+          Pointer.Style = psCircle
+        end
+        object Chart1ConstantLine1: TConstantLine
+          Position = 0
+        end
+        object Chart1ConstantLine2: TConstantLine
+          LineStyle = lsVertical
+          Position = 0
+        end
+        object Func: TFuncSeries
+          Active = False
+          OnCalculate = FuncCalculate
+          Pen.Width = 2
+        end
+      end
+    end
+  end
+  object ToolSet: TChartToolset
+    left = 496
+    top = 176
+    object DatapointClick1: TDataPointClickTool
+      Shift = [ssLeft]
+      OnPointClick = DatapointClick1PointClick
+    end
+    object DragTool: TZoomDragTool
+      Shift = [ssLeft]
+      Brush.Style = bsClear
+    end
+    object PanDrag: TPanDragTool
+      Shift = [ssRight]
+    end
+    object ZoomMouseWheel: TZoomMouseWheelTool
+      Shift = [ssScroll]
+    end
+  end
+end
