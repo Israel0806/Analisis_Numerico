@@ -1,0 +1,139 @@
+object Form1: TForm1
+  Left = 420
+  Height = 492
+  Top = 227
+  Width = 795
+  Caption = 'Form1'
+  ClientHeight = 492
+  ClientWidth = 795
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '1.8.4.0'
+  object PanelClient: TPanel
+    Left = 0
+    Height = 277
+    Top = 215
+    Width = 795
+    Align = alClient
+    ClientHeight = 277
+    ClientWidth = 795
+    TabOrder = 0
+    object Memo1: TMemo
+      Left = 1
+      Height = 275
+      Top = 1
+      Width = 543
+      Align = alLeft
+      Enabled = False
+      TabOrder = 0
+    end
+    object LabelPx: TLabel
+      Left = 544
+      Height = 275
+      Top = 1
+      Width = 49
+      Align = alLeft
+      Caption = 'P(x) = -'
+      ParentColor = False
+    end
+  end
+  object PanelXnum: TPanel
+    Left = 0
+    Height = 80
+    Top = 0
+    Width = 795
+    Align = alTop
+    ClientHeight = 80
+    ClientWidth = 795
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 16
+      Height = 20
+      Top = 8
+      Width = 124
+      Caption = 'Numero de puntos'
+      ParentColor = False
+    end
+    object EdiPoints: TEdit
+      Left = 16
+      Height = 28
+      Top = 40
+      Width = 100
+      OnChange = EdiPointsChange
+      TabOrder = 0
+      Text = '4'
+    end
+  end
+  object PanelXs: TPanel
+    Left = 0
+    Height = 135
+    Top = 80
+    Width = 795
+    Align = alTop
+    ClientHeight = 135
+    ClientWidth = 795
+    TabOrder = 2
+    object Grid1: TStringGrid
+      Left = 1
+      Height = 133
+      Top = 1
+      Width = 399
+      Align = alLeft
+      AutoFillColumns = True
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+      RowCount = 3
+      ScrollBars = ssAutoHorizontal
+      TabOrder = 0
+      ColWidths = (
+        80
+        78
+        78
+        78
+        81
+      )
+      Cells = (
+        10
+        0
+        1
+        'X'
+        0
+        2
+        'Y'
+        1
+        1
+        '-2'
+        1
+        2
+        '4'
+        2
+        1
+        '-3'
+        2
+        2
+        '2'
+        3
+        1
+        '0'
+        3
+        2
+        '-2'
+        4
+        1
+        '1'
+        4
+        2
+        '-4'
+      )
+    end
+    object BEjecutar: TButton
+      Left = 440
+      Height = 40
+      Top = 40
+      Width = 88
+      Caption = 'Ejecutar'
+      OnClick = BEjecutarClick
+      TabOrder = 1
+    end
+  end
+end
