@@ -1,12 +1,12 @@
 object Form1: TForm1
-  Left = 413
+  Left = 1074
   Height = 710
-  Top = 154
+  Top = 190
   Width = 1022
   Align = alClient
   Caption = 'Grafica de Funciones'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 710
+  ClientWidth = 1022
   DesignTimePPI = 120
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -23,7 +23,7 @@ object Form1: TForm1
     TabOrder = 0
     object ScrollBox1: TScrollBox
       Left = 4
-      Height = 702
+      Height = 652
       Top = 4
       Width = 222
       HorzScrollBar.Increment = 1
@@ -33,6 +33,25 @@ object Form1: TForm1
       VertScrollBar.Page = 1
       Align = alClient
       TabOrder = 0
+    end
+    object Panel4: TPanel
+      Left = 4
+      Height = 50
+      Top = 656
+      Width = 222
+      Align = alBottom
+      ClientHeight = 50
+      ClientWidth = 222
+      TabOrder = 1
+      object Button1: TButton
+        Left = 32
+        Height = 35
+        Top = 8
+        Width = 160
+        Caption = 'Eliminar funciones'
+        OnClick = Button1Click
+        TabOrder = 0
+      end
     end
   end
   object Panel3: TPanel
@@ -131,12 +150,14 @@ object Form1: TForm1
         Width = 784
         AxisList = <        
           item
+            Grid.Color = clSkyBlue
             Marks.LabelBrush.Style = bsClear
             Minors = <>
             Title.LabelFont.Orientation = 900
             Title.LabelBrush.Style = bsClear
           end        
           item
+            Grid.Color = clSkyBlue
             Alignment = calBottom
             Marks.LabelBrush.Style = bsClear
             Minors = <>
@@ -161,7 +182,7 @@ object Form1: TForm1
         Toolset = ToolSet
         Align = alClient
         Color = clForm
-        object Chart1LineSeries1: TLineSeries
+        object Points: TLineSeries
           Marks.Format = '%2:s'
           Marks.LinkPen.Color = clActiveBorder
           Marks.LinkPen.Width = 2
@@ -172,16 +193,15 @@ object Form1: TForm1
           Pointer.Pen.Width = 2
           Pointer.Style = psCircle
         end
-        object Chart1ConstantLine1: TConstantLine
+        object HorizontalLine: TConstantLine
           Position = 0
         end
-        object Chart1ConstantLine2: TConstantLine
+        object VerticalLine: TConstantLine
           LineStyle = lsVertical
           Position = 0
         end
         object Func: TFuncSeries
           Active = False
-          OnCalculate = FuncCalculate
           Pen.Width = 2
         end
       end
@@ -200,9 +220,12 @@ object Form1: TForm1
     end
     object PanDrag: TPanDragTool
       Shift = [ssRight]
+      OnAfterMouseUp = PanDragAfterMouseUp
     end
     object ZoomMouseWheel: TZoomMouseWheelTool
       Shift = [ssScroll]
+    end
+    object oolSetZoomMouseWheelTool1: TZoomMouseWheelTool
     end
   end
 end

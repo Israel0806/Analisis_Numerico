@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, StdCtrls, Buttons, LCLType,
-  ColorBox, Dialogs, TAGraph, TAFuncSeries, math, ParseMath, Graphics, ExtCtrls;
+  ColorBox, Dialogs, TAGraph, TAFuncSeries, ParseMath, Graphics, ExtCtrls;
 
 type
 

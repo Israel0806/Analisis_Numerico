@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, TAFuncSeries, TATools,
-  TASources, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls, Grids,
+  Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls, Grids,
   Frame, Types, TAChartUtils, ParseMath;
 
 type
@@ -17,10 +17,11 @@ type
     BEjectuar: TButton;
     BF1: TButton;
     BF2: TButton;
+    Button1: TButton;
     Chart1: TChart;
-    Chart1ConstantLine1: TConstantLine;
-    Chart1ConstantLine2: TConstantLine;
-    Chart1LineSeries1: TLineSeries;
+    HorizontalLine: TConstantLine;
+    VerticalLine: TConstantLine;
+    Points: TLineSeries;
     DataPointClick: TDataPointClickTool;
     DatapointClick1: TDataPointClickTool;
     EdiF1: TEdit;
@@ -28,6 +29,8 @@ type
     Func: TFuncSeries;
     Label1: TLabel;
     Label2: TLabel;
+    oolSetZoomMouseWheelTool1: TZoomMouseWheelTool;
+    Panel4: TPanel;
     ScrollBox1: TScrollBox;
     ZoomMouseWheel: TZoomMouseWheelTool;
     PanDrag: TPanDragTool;
@@ -37,15 +40,15 @@ type
     ToolSet: TChartToolset;
     Panel1: TPanel;
     PFuncs: TPanel;
+
     procedure BEjectuarClick(Sender: TObject);
     procedure BF1Click(Sender: TObject);
     procedure BF2Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
     procedure DatapointClick1PointClick(ATool: TChartTool; APoint: TPoint);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure FuncCalculate(const AX: Double; out AY: Double);
-    procedure ScrollBar1Change(Sender: TObject);
-
+    procedure PanDragAfterMouseUp(ATool: TChartTool; APoint: TPoint);
   private
     Parse : TParseMath;
     GraphicFrame: Array of TFrameFunc;
@@ -74,14 +77,106 @@ begin
    Result := Parse.Evaluate();
 end;
 
-procedure TForm1.FuncCalculate(const AX: Double; out AY: Double);
+
+
+procedure TForm1.PanDragAfterMouseUp(ATool: TChartTool; APoint: TPoint);
+var n, i : Integer;
+    raizCount : Integer = 0;
+    cond : Boolean;
+    a, b, Error, xn, x, xi, NewError, interval : Real;
+    raices : array[0..100] of Real;
+    pg: TDoublePoint;
 begin
+  pg := Chart1.ImageToGraph(Apoint);
+  if not (EdiF1.Text <> '') or not (EdiF2.Text <> '') then
+     exit;
+  interval := 0.1;
+  Error := 0.0001;
 
-end;
+  Parse := TParseMath.create;
+  Parse.AddVariable('x',0);
+  Parse.Expression := EdiF1.Text + '-(' + EdiF2.Text + ')';
+  //ShowMessage( FloatToStr(Chart1.BottomAxis.Position) );
 
-procedure TForm1.ScrollBar1Change(Sender: TObject);
-begin
+  x1 := pg.X-20;
+  x2 := pg.X+20;
+  //ShowMessage(FloatToStr(x1) + ' ' + FloatToStr(x2));
+  xi := x1;
+  repeat
+    x := xi;
+    a := xi;
+    b := xi+0.1;
+    n := 0;
+    if( f(b)*f(a) < 0) then
+    begin
+      repeat
+        if ( f(b)-f(a) = 0 ) then
+        begin
+          ShowMessage('No existe una interseccion real');
+          exit;
+        end;
+        xn := x;
+        x := a-( ( f(a)*(b-a) ) / ( f(b)-f(a) ) );
 
+        if f(a)*f(x) < 0 then
+           b := x
+        else
+           a := x;
+
+        NewError := abs(x - xn);
+        n := n + 1;
+
+      until (NewError <= Error) or (n >= 1000);
+    end;
+    xi := xi + interval;
+    if (abs(f(x))>0.001) then
+        continue;
+
+    if (raizCount <> 0) then
+    begin
+       cond := false;
+       for i := 0 to raizCount do
+       begin
+          if (abs(raices[i] - x)<0.1) then
+          begin
+             cond := true;
+          end;
+       end;
+       if cond = false then
+       begin
+          raices[raizCount] := x;
+          //ShowMessage('Nueva x: ' + FloatToStr(raices[raizCount]) + LineEnding + IntToStr(raizCount));
+          raizCount := raizCount + 1;
+       end;
+    end
+    else
+    begin
+       raices[0] := x;
+       //ShowMessage('Nueva xx: ' + FloatToStr(x) + LineEnding + IntToStr(raizCount));
+       raizCount := 1;
+    end;
+  until (xi >= x2) or (raizCount >= 1000);
+
+  Parse.Expression := EdiF1.Text;
+
+  Points.Clear;
+  Points.Active := False;
+
+  if (raizCount = 0) then
+    begin
+      ShowMessage('No existe una interseccion real');
+      exit;
+    end;
+
+  Points.ShowLines := False;
+  Points.ShowPoints := True;
+  //ShowMessage('raices: ' + IntToStr(raizCount));
+  for i := 0 to raizCount-1 do
+  begin
+     Points.AddXY( raices[i],f(raices[i]) );
+     Points.SetText(i,'x = ' + FloatToStr(raices[i]) + ' ' + IntToStr(i))
+  end;
+  Points.Active := True;
 end;
 
 procedure TForm1.AddGraphic;
@@ -107,45 +202,72 @@ begin
   assignedf2 := false;
 end;
 
+procedure TForm1.Button1Click(Sender: TObject);
+var i: Integer;
+    VerticalLine1 : TConstantLine;
+    HorizontalLine1 : TConstantLine;
+begin
+  for i:= 0 to Length( GraphicFrame ) - 1 do
+      if Assigned( GraphicFrame[ i ] ) then
+//         GraphicFrame[i].FuncSeries.Clear;
+         GraphicFrame[ i ].Destroy;
+  MaxPos := -1;
+  AddGraphic;
+  assignedf1 := false;
+  assignedf2 := false;
+
+end;
+
 procedure TForm1.BEjectuarClick(Sender: TObject);
 var n, i : Integer;
     raizCount : Integer = 0;
     cond : Boolean;
-    Error, h, x, xi, xn, NewError : Real;
-    interval : Real = 1;
+    a, b, Error, xn, x, xi, NewError, interval : Real;
     raices : array[0..100] of Real;
 begin
   if not (EdiF1.Text <> '') or not (EdiF2.Text <> '') then
      exit;
-
+  interval := 0.1;
   Error := 0.0001;
-  h := 0.00001;
 
   Parse := TParseMath.create;
   Parse.AddVariable('x',0);
   Parse.Expression := EdiF1.Text + '-(' + EdiF2.Text + ')';
-  xi := x1-20;
 
+  //ShowMessage( FloatToStr(Chart1.BottomAxis.Position) );
+
+  //ShowMessage(FloatToStr(x1) + ' ' + FloatToStr(x2));
+   xi := x1-20;
   repeat
     x := xi;
+    a := xi;
+    b := xi+0.1;
     n := 0;
-    repeat
-      xn := x;
-      if ( f(x+h) - f(x-h) = 0 ) then
-      begin
-        ShowMessage('No existe una interseccion real');
-        exit;
-      end;
-      x := x - ( ( 2*h*f(x) ) / ( f(x+h) - f(x-h) ) );
-      NewError := abs(x - xn);
-      n := n + 1;
+    if( f(b)*f(a) < 0) then
+    begin
+      repeat
+        if ( f(b)-f(a) = 0 ) then
+        begin
+          ShowMessage('No existe una interseccion real');
+          exit;
+        end;
+        xn := x;
+        x := a-( ( f(a)*(b-a) ) / ( f(b)-f(a) ) );
 
-    until (NewError <= Error) or (n >= 100);
+        if f(a)*f(x) < 0 then
+           b := x
+        else
+           a := x;
+
+        NewError := abs(x - xn);
+        n := n + 1;
+
+      until (NewError <= Error) or (n >= 1000);
+    end;
     xi := xi + interval;
     if (abs(f(x))>0.001) then
-    begin
         continue;
-    end;
+
     if (raizCount <> 0) then
     begin
        cond := false;
@@ -169,14 +291,12 @@ begin
        //ShowMessage('Nueva xx: ' + FloatToStr(x) + LineEnding + IntToStr(raizCount));
        raizCount := 1;
     end;
-  until (xi >= x2 + 20) or (raizCount >= 100);
-
-
+  until (xi >= x2 + 20) or (raizCount >= 1000);
 
   Parse.Expression := EdiF1.Text;
 
-  Chart1LineSeries1.Clear;
-  Chart1LineSeries1.Active := False;
+  Points.Clear;
+  Points.Active := False;
 
   if (raizCount = 0) then
     begin
@@ -184,21 +304,15 @@ begin
       exit;
     end;
 
-  Chart1LineSeries1.ShowLines := False;
-  Chart1LineSeries1.ShowPoints := True;
+  Points.ShowLines := False;
+  Points.ShowPoints := True;
   //ShowMessage('raices: ' + IntToStr(raizCount));
   for i := 0 to raizCount-1 do
   begin
-     Chart1LineSeries1.AddXY( raices[i],f(raices[i]) );
-     Chart1LineSeries1.SetText(i,'x = ' + FloatToStr(raices[i]) + ' ' + IntToStr(i))
+     Points.AddXY( raices[i],f(raices[i]) );
+     Points.SetText(i,'x = ' + FloatToStr(raices[i]) + ' ' + IntToStr(i))
   end;
-  Chart1LineSeries1.Active := True;
-
-  assignedf1 := false;
-  assignedf2 := false;
-  EdiF1.Caption := '';
-  EdiF2.Caption := '';
-
+  Points.Active := True;
 end;
 
 procedure TForm1.DatapointClick1PointClick(ATool: TChartTool; APoint: TPoint);
@@ -219,7 +333,6 @@ begin
              EdiF1.Caption := f1;
              assignedf1 := true;
           end;
-
        end
        else
        begin
