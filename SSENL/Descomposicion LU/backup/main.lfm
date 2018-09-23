@@ -1,0 +1,308 @@
+object Form1: TForm1
+  Left = 454
+  Height = 673
+  Top = 116
+  Width = 823
+  Caption = 'Form1'
+  ClientHeight = 673
+  ClientWidth = 823
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '1.8.4.0'
+  object PanelClient: TPanel
+    Left = 0
+    Height = 673
+    Top = 0
+    Width = 823
+    Align = alClient
+    AutoSize = True
+    ClientHeight = 673
+    ClientWidth = 823
+    TabOrder = 0
+    object PanelBottom: TPanel
+      Left = 1
+      Height = 389
+      Top = 283
+      Width = 821
+      Align = alClient
+      ClientHeight = 389
+      ClientWidth = 821
+      Font.Height = -17
+      ParentFont = False
+      TabOrder = 0
+      object GridCoef: TStringGrid
+        Left = 32
+        Height = 112
+        Top = 32
+        Width = 192
+        ColCount = 3
+        DefaultRowHeight = 37
+        FixedCols = 0
+        FixedRows = 0
+        Font.Height = -22
+        GridLineWidth = 2
+        ParentFont = False
+        RowCount = 3
+        ScrollBars = ssNone
+        TabOrder = 0
+        TitleFont.Height = -22
+        ColWidths = (
+          62
+          62
+          64
+        )
+      end
+      object Label1: TLabel
+        Left = 376
+        Height = 23
+        Top = 152
+        Width = 12
+        Caption = 'U'
+        Font.Height = -17
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label2: TLabel
+        Left = 14
+        Height = 23
+        Top = 247
+        Width = 8
+        Caption = 'L'
+        ParentColor = False
+      end
+      object GridU: TStringGrid
+        Left = 288
+        Height = 112
+        Top = 32
+        Width = 192
+        ColCount = 3
+        DefaultRowHeight = 37
+        FixedCols = 0
+        FixedRows = 0
+        Font.Height = -22
+        GridLineWidth = 2
+        ParentFont = False
+        RowCount = 3
+        ScrollBars = ssNone
+        TabOrder = 1
+        TitleFont.Height = -22
+        ColWidths = (
+          62
+          62
+          64
+        )
+      end
+      object GridL: TStringGrid
+        Left = 32
+        Height = 112
+        Top = 200
+        Width = 192
+        ColCount = 3
+        DefaultRowHeight = 37
+        FixedCols = 0
+        FixedRows = 0
+        Font.Height = -22
+        GridLineWidth = 2
+        ParentFont = False
+        RowCount = 3
+        ScrollBars = ssNone
+        TabOrder = 2
+        TitleFont.Height = -22
+        ColWidths = (
+          62
+          62
+          64
+        )
+      end
+      object Arrow: TLabel
+        Left = 232
+        Height = 45
+        Top = 64
+        Width = 46
+        Caption = '=>'
+        Font.Height = -33
+        ParentColor = False
+        ParentFont = False
+      end
+    end
+    object PanelTop: TPanel
+      Left = 1
+      Height = 282
+      Top = 1
+      Width = 821
+      Align = alTop
+      ClientHeight = 282
+      ClientWidth = 821
+      TabOrder = 1
+      object PanelText: TPanel
+        Left = 1
+        Height = 280
+        Top = 1
+        Width = 191
+        Align = alLeft
+        ClientHeight = 280
+        ClientWidth = 191
+        TabOrder = 0
+        object EdiF1: TLabeledEdit
+          Left = 32
+          Height = 28
+          Top = 32
+          Width = 144
+          EditLabel.AnchorSideLeft.Control = EdiF1
+          EditLabel.AnchorSideRight.Control = EdiF1
+          EditLabel.AnchorSideRight.Side = asrBottom
+          EditLabel.AnchorSideBottom.Control = EdiF1
+          EditLabel.Left = 32
+          EditLabel.Height = 20
+          EditLabel.Top = 9
+          EditLabel.Width = 144
+          EditLabel.Caption = 'Funcion 1'
+          EditLabel.ParentColor = False
+          TabOrder = 0
+          Text = '1x+4y-5z=-17'
+        end
+        object EdiF2: TLabeledEdit
+          Left = 32
+          Height = 28
+          Top = 96
+          Width = 144
+          EditLabel.AnchorSideLeft.Control = EdiF2
+          EditLabel.AnchorSideRight.Control = EdiF2
+          EditLabel.AnchorSideRight.Side = asrBottom
+          EditLabel.AnchorSideBottom.Control = EdiF2
+          EditLabel.Left = 32
+          EditLabel.Height = 20
+          EditLabel.Top = 73
+          EditLabel.Width = 144
+          EditLabel.Caption = 'Funcion 2'
+          EditLabel.ParentColor = False
+          TabOrder = 1
+          Text = '3x-1y+1z=10'
+        end
+        object EdiF3: TLabeledEdit
+          Left = 32
+          Height = 28
+          Top = 160
+          Width = 144
+          EditLabel.AnchorSideLeft.Control = EdiF3
+          EditLabel.AnchorSideRight.Control = EdiF3
+          EditLabel.AnchorSideRight.Side = asrBottom
+          EditLabel.AnchorSideBottom.Control = EdiF3
+          EditLabel.Left = 32
+          EditLabel.Height = 20
+          EditLabel.Top = 137
+          EditLabel.Width = 144
+          EditLabel.Caption = 'Funcion 3'
+          EditLabel.ParentColor = False
+          TabOrder = 2
+          Text = '2x-3y-4z=-2'
+        end
+        object BEjecutar: TButton
+          Left = 40
+          Height = 47
+          Top = 208
+          Width = 93
+          Caption = 'Ejecutar'
+          OnClick = BEjecutarClick
+          TabOrder = 3
+        end
+      end
+      object ScrollBox1: TScrollBox
+        Left = 192
+        Height = 280
+        Top = 1
+        Width = 628
+        HorzScrollBar.Page = 53
+        VertScrollBar.Page = 172
+        Align = alClient
+        ClientHeight = 276
+        ClientWidth = 624
+        TabOrder = 1
+        object LabelX: TLabel
+          Left = 48
+          Height = 28
+          Top = 56
+          Width = 5
+          Caption = ' '
+          Font.Height = -20
+          ParentColor = False
+          ParentFont = False
+        end
+        object LabelY: TLabel
+          Left = 48
+          Height = 28
+          Top = 101
+          Width = 5
+          Caption = ' '
+          Font.Height = -20
+          ParentColor = False
+          ParentFont = False
+        end
+        object LabelZ: TLabel
+          Left = 48
+          Height = 28
+          Top = 144
+          Width = 5
+          Caption = ' '
+          Font.Height = -20
+          ParentColor = False
+          ParentFont = False
+        end
+        object Label3: TLabel
+          Left = 8
+          Height = 35
+          Top = 94
+          Width = 7
+          Caption = ' '
+          Font.Height = -25
+          ParentColor = False
+          ParentFont = False
+        end
+      end
+    end
+  end
+  object ScrollBox2: TScrollBox
+    Left = 232
+    Height = 144
+    Top = 480
+    Width = 584
+    HorzScrollBar.Page = 5
+    VertScrollBar.Page = 92
+    Align = alCustom
+    BorderStyle = bsNone
+    ClientHeight = 144
+    ClientWidth = 584
+    TabOrder = 1
+    object x1: TLabel
+      Left = 0
+      Height = 28
+      Top = 0
+      Width = 5
+      Caption = ' '
+      Font.Height = -20
+      ParentColor = False
+      ParentFont = False
+    end
+    object x2: TLabel
+      Left = 0
+      Height = 28
+      Top = 32
+      Width = 5
+      Caption = ' '
+      Font.Height = -20
+      ParentColor = False
+      ParentFont = False
+    end
+    object x3: TLabel
+      Left = 0
+      Height = 28
+      Top = 64
+      Width = 5
+      Caption = ' '
+      Font.Height = -20
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+end

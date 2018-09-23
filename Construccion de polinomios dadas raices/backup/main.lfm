@@ -1,0 +1,127 @@
+object Form1: TForm1
+  Left = 598
+  Height = 580
+  Top = 202
+  Width = 831
+  Caption = 'Form1'
+  ClientHeight = 580
+  ClientWidth = 831
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '1.8.4.0'
+  object PanelClient: TPanel
+    Left = 213
+    Height = 580
+    Top = 0
+    Width = 618
+    Align = alClient
+    ClientHeight = 580
+    ClientWidth = 618
+    TabOrder = 0
+    object Grid: TStringGrid
+      Left = 40
+      Height = 90
+      Top = 168
+      Width = 240
+      AutoFillColumns = True
+      ColCount = 3
+      DefaultRowHeight = 30
+      FixedCols = 0
+      FixedRows = 0
+      Font.Height = -20
+      ParentFont = False
+      RowCount = 3
+      ScrollBars = ssNone
+      TabOrder = 0
+      TitleFont.Height = -20
+      ColWidths = (
+        78
+        78
+        80
+      )
+    end
+    object LabelRpta: TLabel
+      Left = 40
+      Height = 28
+      Top = 96
+      Width = 5
+      Caption = ' '
+      Font.Height = -20
+      ParentColor = False
+      ParentFont = False
+    end
+    object BEjecutar: TButton
+      Left = 56
+      Height = 40
+      Top = 32
+      Width = 104
+      Caption = 'Ejecutar'
+      OnClick = BEjecutarClick
+      TabOrder = 1
+    end
+  end
+  object PanelFrames: TPanel
+    Left = 0
+    Height = 580
+    Top = 0
+    Width = 213
+    Align = alLeft
+    Caption = 'PanelFrames'
+    ClientHeight = 580
+    ClientWidth = 213
+    TabOrder = 1
+    object Panel1: TPanel
+      Left = 1
+      Height = 31
+      Top = 1
+      Width = 211
+      Align = alTop
+      ClientHeight = 31
+      ClientWidth = 211
+      TabOrder = 0
+      object LabelRaices: TLabel
+        Left = 1
+        Height = 20
+        Top = 1
+        Width = 209
+        Align = alTop
+        Caption = 'Raices'
+        ParentColor = False
+      end
+    end
+    object ScrollFrame: TScrollBox
+      Left = 1
+      Height = 484
+      Top = 32
+      Width = 211
+      HorzScrollBar.Page = 1
+      VertScrollBar.Page = 1
+      Align = alClient
+      TabOrder = 1
+    end
+    object PanelBReset: TPanel
+      Left = 1
+      Height = 63
+      Top = 516
+      Width = 211
+      Align = alBottom
+      ClientHeight = 63
+      ClientWidth = 211
+      TabOrder = 2
+      object BReset: TButton
+        Left = 21
+        Height = 41
+        Top = 11
+        Width = 169
+        Align = alClient
+        BorderSpacing.Left = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Around = 10
+        Caption = 'Eliminar Raices'
+        OnClick = BResetClick
+        TabOrder = 0
+      end
+    end
+  end
+end

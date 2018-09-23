@@ -1,29 +1,29 @@
 object Form1: TForm1
-  Left = 1074
-  Height = 710
-  Top = 190
-  Width = 1022
+  Left = 406
+  Height = 507
+  Top = 257
+  Width = 777
   Align = alClient
   Caption = 'Grafica de Funciones'
-  ClientHeight = 710
-  ClientWidth = 1022
+  ClientHeight = 507
+  ClientWidth = 777
   DesignTimePPI = 120
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   LCLVersion = '1.8.4.0'
   object PFuncs: TPanel
     Left = 0
-    Height = 710
+    Height = 507
     Top = 0
     Width = 230
     Align = alLeft
     BorderWidth = 3
-    ClientHeight = 710
+    ClientHeight = 507
     ClientWidth = 230
     TabOrder = 0
     object ScrollBox1: TScrollBox
       Left = 4
-      Height = 652
+      Height = 449
       Top = 4
       Width = 222
       HorzScrollBar.Increment = 1
@@ -37,7 +37,7 @@ object Form1: TForm1
     object Panel4: TPanel
       Left = 4
       Height = 50
-      Top = 656
+      Top = 453
       Width = 222
       Align = alBottom
       ClientHeight = 50
@@ -56,22 +56,22 @@ object Form1: TForm1
   end
   object Panel3: TPanel
     Left = 230
-    Height = 710
+    Height = 507
     Top = 0
-    Width = 792
+    Width = 547
     Align = alClient
     Caption = 'Panel3'
-    ClientHeight = 710
-    ClientWidth = 792
+    ClientHeight = 507
+    ClientWidth = 547
     TabOrder = 1
     object Panel2: TPanel
       Left = 1
       Height = 94
-      Top = 615
-      Width = 790
+      Top = 412
+      Width = 545
       Align = alBottom
       ClientHeight = 94
-      ClientWidth = 790
+      ClientWidth = 545
       TabOrder = 0
       object BEjectuar: TButton
         Left = 424
@@ -135,19 +135,19 @@ object Form1: TForm1
     end
     object Panel1: TPanel
       Left = 1
-      Height = 614
+      Height = 411
       Top = 1
-      Width = 790
+      Width = 545
       Align = alClient
       BorderWidth = 2
-      ClientHeight = 614
-      ClientWidth = 790
+      ClientHeight = 411
+      ClientWidth = 545
       TabOrder = 1
       object Chart1: TChart
         Left = 3
-        Height = 608
+        Height = 405
         Top = 3
-        Width = 784
+        Width = 539
         AxisList = <        
           item
             Grid.Color = clSkyBlue
@@ -174,6 +174,7 @@ object Form1: TForm1
         Extent.YMin = -5
         Foot.Brush.Color = clBtnFace
         Foot.Font.Color = clBlue
+        Legend.Visible = True
         Title.Brush.Color = clBtnFace
         Title.Font.Color = clBlue
         Title.Text.Strings = (
@@ -194,9 +195,13 @@ object Form1: TForm1
           Pointer.Style = psCircle
         end
         object HorizontalLine: TConstantLine
+          Arrow.BaseLength = 10
+          Arrow.Visible = True
           Position = 0
         end
         object VerticalLine: TConstantLine
+          Arrow.BaseLength = 10
+          Arrow.Visible = True
           LineStyle = lsVertical
           Position = 0
         end

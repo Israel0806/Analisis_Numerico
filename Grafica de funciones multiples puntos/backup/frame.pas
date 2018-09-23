@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, StdCtrls, Buttons, LCLType,
-  ColorBox, Dialogs, TAGraph, TAFuncSeries, math, ParseMath, Graphics, ExtCtrls;
+  ColorBox, Dialogs, TAGraph, TAFuncSeries, ParseMath, Graphics, ExtCtrls, Math;
 
 type
 
@@ -20,6 +20,7 @@ type
     procedure Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FrameClick(Sender: TObject);
     procedure CalculateFunc(const AX: Double; out AY: Double);
+    procedure delete();
   private
     Parse: TParseMath;
     function f( x : Real ) : Real;

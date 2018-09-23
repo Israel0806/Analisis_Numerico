@@ -6,8 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, TAFuncSeries, TATools,
-  Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls, Grids,
-  Frame, Types, TAChartUtils, ParseMath;
+  Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
+  Frame, Types, TAChartUtils, ParseMath, math;
 
 type
 
@@ -80,7 +80,7 @@ end;
 
 
 procedure TForm1.PanDragAfterMouseUp(ATool: TChartTool; APoint: TPoint);
-var n, i : Integer;
+var limit, n, i : Integer;
     raizCount : Integer = 0;
     cond : Boolean;
     a, b, Error, xn, x, xi, NewError, interval : Real;
@@ -88,7 +88,7 @@ var n, i : Integer;
     pg: TDoublePoint;
 begin
   pg := Chart1.ImageToGraph(Apoint);
-  if not (EdiF1.Text <> '') or not (EdiF2.Text <> '') then
+  if not (EdiF1.Text <> '') or not (EdiF2.Text <> '') or (MaxPos = 0) then
      exit;
   interval := 0.1;
   Error := 0.0001;
@@ -204,13 +204,20 @@ end;
 
 procedure TForm1.Button1Click(Sender: TObject);
 var i: Integer;
-    VerticalLine1 : TConstantLine;
-    HorizontalLine1 : TConstantLine;
 begin
-  for i:= 0 to Length( GraphicFrame ) - 1 do
+  if MaxPos = 0 then exit;
+  for i:= 0 to Length( GraphicFrame ) - 1  do
       if Assigned( GraphicFrame[ i ] ) then
-//         GraphicFrame[i].FuncSeries.Clear;
+      begin
+
          GraphicFrame[ i ].Destroy;
+         Chart1.Series[Chart1.SeriesCount-1].Destroy;
+      end;
+
+  EdiF1.Text := '';
+  EdiF2.Text := '';
+
+  Points.Clear;
   MaxPos := -1;
   AddGraphic;
   assignedf1 := false;
@@ -219,21 +226,29 @@ begin
 end;
 
 procedure TForm1.BEjectuarClick(Sender: TObject);
-var n, i : Integer;
+var limit, n, i : Integer;
     raizCount : Integer = 0;
     cond : Boolean;
     a, b, Error, xn, x, xi, NewError, interval : Real;
     raices : array[0..100] of Real;
 begin
-  if not (EdiF1.Text <> '') or not (EdiF2.Text <> '') then
+  if not (EdiF1.Text <> '') or not (EdiF2.Text <> '') or (Chart1.SeriesCount = 3) then
      exit;
   interval := 0.1;
-  Error := 0.0001;
+  Error := 0.000001;
 
   Parse := TParseMath.create;
   Parse.AddVariable('x',0);
   Parse.Expression := EdiF1.Text + '-(' + EdiF2.Text + ')';
-
+  {limit := -1;
+  limit := Pos(Parse.Expression,'l');
+  if limit <> -1 then
+  begin
+      with Func.DomainExclusions do
+      begin
+        AddRange(-NegInfinity,1);
+      end;
+  end;  }
   //ShowMessage( FloatToStr(Chart1.BottomAxis.Position) );
 
   //ShowMessage(FloatToStr(x1) + ' ' + FloatToStr(x2));
@@ -368,6 +383,7 @@ begin
   for i:= 0 to Length( GraphicFrame ) - 1 do
       if Assigned( GraphicFrame[ i ] ) then
          GraphicFrame[ i ].Destroy;
+  Parse.Destroy;
 end;
 
 end.
