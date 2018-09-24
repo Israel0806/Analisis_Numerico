@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, TAFuncSeries, TATools,
   Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Frame, Types, TAChartUtils, ParseMath, math;
+  Frame, Types, TAChartUtils, ParseMath;
 
 type
 
@@ -51,6 +51,7 @@ type
     procedure PanDragAfterMouseUp(ATool: TChartTool; APoint: TPoint);
   private
     Parse : TParseMath;
+    ButtonPressed : Boolean;
     GraphicFrame: Array of TFrameFunc;
     function f( x : Real ) : Real;
   public
@@ -88,7 +89,7 @@ var limit, n, i : Integer;
     pg: TDoublePoint;
 begin
   pg := Chart1.ImageToGraph(Apoint);
-  if not (EdiF1.Text <> '') or not (EdiF2.Text <> '') or (Chart1.SeriesCount = 3) then
+  if not (EdiF1.Text <> '') or not (EdiF2.Text <> '') or (MaxPos = 0) or (ButtonPressed = False) then
      exit;
   interval := 0.1;
   Error := 0.0001;
@@ -194,12 +195,14 @@ procedure TForm1.BF1Click(Sender: TObject);
 begin
    EdiF1.Caption := '';
    assignedf1 := false;
+   ButtonPressed := False;
 end;
 
 procedure TForm1.BF2Click(Sender: TObject);
 begin
   EdiF2.Caption := '';
   assignedf2 := false;
+  ButtonPressed := False;
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
@@ -209,7 +212,6 @@ begin
   for i:= 0 to Length( GraphicFrame ) - 1  do
       if Assigned( GraphicFrame[ i ] ) then
       begin
-
          GraphicFrame[ i ].Destroy;
          Chart1.Series[Chart1.SeriesCount-1].Destroy;
       end;
@@ -226,7 +228,7 @@ begin
 end;
 
 procedure TForm1.BEjectuarClick(Sender: TObject);
-var limit, n, i : Integer;
+var n, i : Integer;
     raizCount : Integer = 0;
     cond : Boolean;
     a, b, Error, xn, x, xi, NewError, interval : Real;
@@ -234,21 +236,13 @@ var limit, n, i : Integer;
 begin
   if not (EdiF1.Text <> '') or not (EdiF2.Text <> '') or (Chart1.SeriesCount = 3) then
      exit;
+  ButtonPressed := True;
   interval := 0.1;
   Error := 0.000001;
 
   Parse := TParseMath.create;
   Parse.AddVariable('x',0);
   Parse.Expression := EdiF1.Text + '-(' + EdiF2.Text + ')';
-  {limit := -1;
-  limit := Pos(Parse.Expression,'l');
-  if limit <> -1 then
-  begin
-      with Func.DomainExclusions do
-      begin
-        AddRange(-NegInfinity,1);
-      end;
-  end;  }
   //ShowMessage( FloatToStr(Chart1.BottomAxis.Position) );
 
   //ShowMessage(FloatToStr(x1) + ' ' + FloatToStr(x2));
@@ -371,6 +365,7 @@ end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
+  ButtonPressed := False;
   MaxPos := -1;
   AddGraphic;
   assignedf1 := false;
@@ -383,7 +378,6 @@ begin
   for i:= 0 to Length( GraphicFrame ) - 1 do
       if Assigned( GraphicFrame[ i ] ) then
          GraphicFrame[ i ].Destroy;
-  Parse.Destroy;
 end;
 
 end.

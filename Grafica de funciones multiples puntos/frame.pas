@@ -51,6 +51,7 @@ end;
 
 procedure TFrameFunc.Edit1KeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
+var limit : String;
 begin
   if Key <> VK_RETURN then
      exit;
@@ -68,6 +69,19 @@ begin
 
      Parse := TParseMath.create;
      Parse.Expression := Edit1.Text;
+
+     limit := Copy(Parse.Expression,Pos('l',Parse.Expression),2);
+
+     if limit <> 'ln' then
+       limit := Copy(Parse.Expression,Pos('s',Parse.Expression),4);
+
+     if (limit = 'ln') or (limit = 'sqrt') then
+     begin
+       with FuncSeries.DomainExclusions do
+         begin
+           AddRange(NegInfinity,0);
+         end;
+     end;
      Parse.AddVariable('x',0);
      Parse.AddVariable('e',2.7182818284);
 
