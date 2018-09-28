@@ -10,7 +10,7 @@ object Raices: TRaices
   TabOrder = 0
   DesignLeft = 1489
   DesignTop = 50
-  object Edit1: TEdit
+  object EditRoot: TEdit
     Left = 5
     Height = 28
     Top = 7
@@ -19,7 +19,7 @@ object Raices: TRaices
     BorderSpacing.Top = 2
     BorderSpacing.Bottom = 2
     BorderSpacing.Around = 5
-    OnKeyUp = Edit1KeyUp
+    OnKeyUp = EditRootKeyUp
     TabOrder = 0
   end
 end

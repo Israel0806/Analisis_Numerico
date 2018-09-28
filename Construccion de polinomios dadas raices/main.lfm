@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 598
+  Left = 555
   Height = 580
-  Top = 202
+  Top = 156
   Width = 831
   Caption = 'Form1'
   ClientHeight = 580
@@ -19,46 +19,133 @@ object Form1: TForm1
     ClientHeight = 580
     ClientWidth = 618
     TabOrder = 0
-    object Grid: TStringGrid
-      Left = 40
-      Height = 90
-      Top = 168
-      Width = 240
-      AutoFillColumns = True
-      ColCount = 3
-      DefaultRowHeight = 30
-      FixedCols = 0
-      FixedRows = 0
-      Font.Height = -20
-      ParentFont = False
-      RowCount = 3
-      ScrollBars = ssNone
+    object PanelGrafica: TPanel
+      Left = 1
+      Height = 363
+      Top = 216
+      Width = 616
+      Align = alClient
       TabOrder = 0
-      TitleFont.Height = -20
-      ColWidths = (
-        78
-        78
-        80
+    end
+    object Chart1: TChart
+      Left = 1
+      Height = 363
+      Top = 216
+      Width = 616
+      AxisList = <      
+        item
+          Grid.Color = clSkyBlue
+          Marks.LabelBrush.Style = bsClear
+          Minors = <>
+          Title.LabelFont.Orientation = 900
+          Title.LabelBrush.Style = bsClear
+        end      
+        item
+          Grid.Color = clSkyBlue
+          Alignment = calBottom
+          Marks.LabelBrush.Style = bsClear
+          Minors = <>
+          Title.LabelBrush.Style = bsClear
+        end>
+      BackColor = clHighlightText
+      Extent.UseXMax = True
+      Extent.UseXMin = True
+      Extent.UseYMax = True
+      Extent.UseYMin = True
+      Extent.XMax = 5
+      Extent.XMin = -5
+      Extent.YMax = 5
+      Extent.YMin = -5
+      Foot.Brush.Color = clBtnFace
+      Foot.Font.Color = clBlue
+      Legend.Visible = True
+      Title.Brush.Color = clBtnFace
+      Title.Font.Color = clBlue
+      Title.Text.Strings = (
+        'TAChart'
       )
+      Align = alClient
+      Color = clForm
+      object Points: TLineSeries
+        Marks.Format = '%2:s'
+        Marks.LinkPen.Color = clActiveBorder
+        Marks.LinkPen.Width = 2
+        Marks.Style = smsLabel
+        LinePen.Color = clRed
+        Pointer.Brush.Color = clRed
+        Pointer.Pen.Color = clRed
+        Pointer.Pen.Width = 2
+        Pointer.Style = psCircle
+      end
+      object HorizontalLine: TConstantLine
+        Arrow.BaseLength = 10
+        Arrow.Visible = True
+        Position = 0
+      end
+      object VerticalLine: TConstantLine
+        Arrow.BaseLength = 10
+        Arrow.Visible = True
+        LineStyle = lsVertical
+        Position = 0
+      end
+      object Func: TFuncSeries
+        Active = False
+        OnCalculate = FuncCalculate
+        Pen.Width = 2
+      end
     end
-    object LabelRpta: TLabel
-      Left = 40
-      Height = 28
-      Top = 96
-      Width = 5
-      Caption = ' '
-      Font.Height = -20
-      ParentColor = False
-      ParentFont = False
-    end
-    object BEjecutar: TButton
-      Left = 56
-      Height = 40
-      Top = 32
-      Width = 104
-      Caption = 'Ejecutar'
-      OnClick = BEjecutarClick
-      TabOrder = 1
+    object ScrollBox1: TScrollBox
+      Left = 1
+      Height = 215
+      Top = 1
+      Width = 616
+      HorzScrollBar.Page = 272
+      VertScrollBar.Page = 202
+      Align = alTop
+      ClientHeight = 211
+      ClientWidth = 612
+      TabOrder = 2
+      object BEjecutar: TButton
+        Left = 40
+        Height = 40
+        Top = 16
+        Width = 104
+        Caption = 'Ejecutar'
+        OnClick = BEjecutarClick
+        TabOrder = 0
+      end
+      object LabelRpta: TLabel
+        Left = 40
+        Height = 28
+        Top = 72
+        Width = 5
+        Caption = ' '
+        Font.Height = -20
+        ParentColor = False
+        ParentFont = False
+      end
+      object Grid: TStringGrid
+        Left = 32
+        Height = 90
+        Top = 112
+        Width = 240
+        AutoFillColumns = True
+        ColCount = 3
+        DefaultRowHeight = 30
+        FixedCols = 0
+        FixedRows = 0
+        Font.Height = -20
+        ParentFont = False
+        RowCount = 3
+        ScrollBars = ssNone
+        TabOrder = 1
+        TitleFont.Height = -20
+        ColWidths = (
+          78
+          78
+          80
+        )
+      end
     end
   end
   object PanelFrames: TPanel
