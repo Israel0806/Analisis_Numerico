@@ -53,8 +53,10 @@ procedure TFrameFunc.Edit1KeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 var limit : String;
 begin
-  if Key <> VK_RETURN then
+  if (Key <> VK_RETURN) or (Edit1.Caption <> '') then
+  begin
      exit;
+  end;
 
   with Form1 do begin
      if not Assigned( FuncSeries ) then begin
@@ -79,9 +81,10 @@ begin
      begin
        with FuncSeries.DomainExclusions do
          begin
-           AddRange(NegInfinity,1);
+           AddRange(NegInfinity,0);
          end;
      end;
+
      Parse.AddVariable('x',0);
      Parse.AddVariable('e',2.7182818284);
 

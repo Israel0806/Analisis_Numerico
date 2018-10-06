@@ -53,7 +53,7 @@ procedure TFrameFunc.Edit1KeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 var limit : String;
 begin
-  if Key <> VK_RETURN then
+  if (Key <> VK_RETURN) or (Edit1.Caption = '') then
      exit;
 
   with Form1 do begin
@@ -82,6 +82,7 @@ begin
            AddRange(NegInfinity,0);
          end;
      end;
+
      Parse.AddVariable('x',0);
      Parse.AddVariable('e',2.7182818284);
 
