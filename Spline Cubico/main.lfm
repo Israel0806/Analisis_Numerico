@@ -1,0 +1,299 @@
+object Form1: TForm1
+  Left = 991
+  Height = 710
+  Top = 154
+  Width = 869
+  Caption = 'Form1'
+  ClientHeight = 710
+  ClientWidth = 869
+  DesignTimePPI = 120
+  LCLVersion = '1.8.4.0'
+  object PanelGrid: TPanel
+    Left = 0
+    Height = 120
+    Top = 88
+    Width = 869
+    Align = alTop
+    ClientHeight = 120
+    ClientWidth = 869
+    TabOrder = 0
+    object Grid1: TStringGrid
+      Left = 1
+      Height = 118
+      Top = 1
+      Width = 399
+      Align = alLeft
+      ColCount = 22
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+      RowCount = 3
+      ScrollBars = ssAutoHorizontal
+      TabOrder = 0
+      ColWidths = (
+        80
+        78
+        78
+        78
+        81
+        95
+        80
+        80
+        80
+        80
+        80
+        80
+        80
+        80
+        80
+        80
+        80
+        80
+        80
+        80
+        80
+        80
+      )
+      Cells = (
+        44
+        0
+        1
+        'X'
+        0
+        2
+        'Y'
+        1
+        1
+        '0.9'
+        1
+        2
+        '1.3'
+        2
+        1
+        '1.4'
+        2
+        2
+        '1.5'
+        3
+        1
+        '1.9'
+        3
+        2
+        '1.9'
+        4
+        1
+        '2.1'
+        4
+        2
+        '2.1'
+        5
+        1
+        '2.6'
+        5
+        2
+        '2.5'
+        6
+        1
+        '3'
+        6
+        2
+        '2.7'
+        7
+        1
+        '3.9'
+        7
+        2
+        '2.4'
+        8
+        1
+        '4.4'
+        8
+        2
+        '2.1'
+        9
+        1
+        '4.6'
+        9
+        2
+        '2.05'
+        10
+        1
+        '5'
+        10
+        2
+        '2.1'
+        11
+        1
+        '6'
+        11
+        2
+        '2.2'
+        12
+        1
+        '7'
+        12
+        2
+        '2.4'
+        13
+        1
+        '8'
+        13
+        2
+        '2.2'
+        14
+        1
+        '9.2'
+        14
+        2
+        '1.95'
+        15
+        1
+        '10.5'
+        15
+        2
+        '1.5'
+        16
+        1
+        '11.2'
+        16
+        2
+        '0.9'
+        17
+        1
+        '11.6'
+        17
+        2
+        '0.8'
+        18
+        1
+        '12'
+        18
+        2
+        '0.6'
+        19
+        1
+        '12.6'
+        19
+        2
+        '0.5'
+        20
+        1
+        '13'
+        20
+        2
+        '0.4'
+        21
+        1
+        '13.4'
+        21
+        2
+        '0.3'
+      )
+    end
+    object BEjecutar: TButton
+      Left = 448
+      Height = 40
+      Top = 32
+      Width = 88
+      Caption = 'Ejecutar'
+      OnClick = BEjecutarClick
+      TabOrder = 1
+    end
+  end
+  object PanelPoints: TPanel
+    Left = 0
+    Height = 88
+    Top = 0
+    Width = 869
+    Align = alTop
+    ClientHeight = 88
+    ClientWidth = 869
+    TabOrder = 1
+    object EdiPoints: TEdit
+      Left = 16
+      Height = 28
+      Top = 40
+      Width = 100
+      OnChange = EdiPointsChange
+      TabOrder = 0
+      Text = '21'
+    end
+    object Label1: TLabel
+      Left = 16
+      Height = 20
+      Top = 8
+      Width = 124
+      Caption = 'Numero de puntos'
+      ParentColor = False
+    end
+    object Memo1: TMemo
+      Left = 201
+      Height = 73
+      Top = 8
+      Width = 668
+      Lines.Strings = (
+        ''
+      )
+      TabOrder = 1
+    end
+  end
+  object PanelChart: TPanel
+    Left = 0
+    Height = 502
+    Top = 208
+    Width = 869
+    Align = alClient
+    ClientHeight = 502
+    ClientWidth = 869
+    TabOrder = 2
+    object Chart1: TChart
+      Left = 1
+      Height = 500
+      Top = 1
+      Width = 867
+      AxisList = <      
+        item
+          Grid.Color = clSkyBlue
+          Marks.LabelBrush.Style = bsClear
+          Minors = <>
+          Title.LabelFont.Orientation = 900
+          Title.LabelBrush.Style = bsClear
+        end      
+        item
+          Grid.Color = clSkyBlue
+          Alignment = calBottom
+          Marks.LabelBrush.Style = bsClear
+          Minors = <>
+          Title.LabelBrush.Style = bsClear
+        end>
+      BackColor = clHighlightText
+      Extent.UseXMax = True
+      Extent.UseXMin = True
+      Extent.UseYMax = True
+      Extent.UseYMin = True
+      Extent.XMax = 10
+      Extent.XMin = -10
+      Extent.YMax = 10
+      Extent.YMin = -10
+      Foot.Brush.Color = clBtnFace
+      Foot.Font.Color = clBlue
+      Legend.Visible = True
+      Title.Brush.Color = clBtnFace
+      Title.Font.Color = clBlue
+      Title.Text.Strings = (
+        'TAChart'
+      )
+      Align = alClient
+      Color = clForm
+      object HorizontalLine: TConstantLine
+        Arrow.BaseLength = 10
+        Arrow.Visible = True
+        Position = 0
+      end
+      object VerticalLine: TConstantLine
+        Arrow.BaseLength = 10
+        Arrow.Visible = True
+        LineStyle = lsVertical
+        Position = 0
+      end
+    end
+  end
+end
