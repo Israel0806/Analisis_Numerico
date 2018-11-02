@@ -235,11 +235,13 @@ var i: Integer;
 begin
   if MaxPos = 0 then exit;
   for i:= 0 to Length( GraphicFrame ) - 1  do
+  begin
       if Assigned( GraphicFrame[ i ] ) then
       begin
          GraphicFrame[ i ].Destroy;
          Chart1.Series[Chart1.SeriesCount-1].Destroy;
       end;
+  end;
 
   EdiF1.Text := '';
   EdiF2.Text := '';
