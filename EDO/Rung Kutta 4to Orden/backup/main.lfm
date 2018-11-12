@@ -1,0 +1,84 @@
+object Form1: TForm1
+  Left = 691
+  Height = 440
+  Top = 170
+  Width = 538
+  Caption = 'Form1'
+  ClientHeight = 440
+  ClientWidth = 538
+  DesignTimePPI = 120
+  LCLVersion = '1.8.4.0'
+  object ediDF: TEdit
+    Left = 56
+    Height = 28
+    Top = 48
+    Width = 100
+    TabOrder = 0
+    Text = 'x*y'
+  end
+  object Label1: TLabel
+    Left = 56
+    Height = 20
+    Top = 24
+    Width = 60
+    Caption = 'Derivada'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 56
+    Height = 20
+    Top = 88
+    Width = 7
+    Caption = 'x'
+    ParentColor = False
+  end
+  object ediX: TEdit
+    Left = 56
+    Height = 28
+    Top = 112
+    Width = 100
+    TabOrder = 1
+    Text = '1'
+  end
+  object Label3: TLabel
+    Left = 176
+    Height = 20
+    Top = 88
+    Width = 7
+    Caption = 'y'
+    ParentColor = False
+  end
+  object ediY: TEdit
+    Left = 176
+    Height = 28
+    Top = 112
+    Width = 100
+    TabOrder = 2
+    Text = '2'
+  end
+  object Button1: TButton
+    Left = 56
+    Height = 39
+    Top = 208
+    Width = 88
+    Cancel = True
+    Caption = 'Ejecutar'
+    TabOrder = 3
+  end
+  object Label4: TLabel
+    Left = 56
+    Height = 20
+    Top = 144
+    Width = 15
+    Caption = 'xn'
+    ParentColor = False
+  end
+  object ediXN: TEdit
+    Left = 56
+    Height = 28
+    Top = 168
+    Width = 100
+    TabOrder = 4
+    Text = '2'
+  end
+end
